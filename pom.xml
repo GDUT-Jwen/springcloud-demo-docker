@@ -70,14 +70,12 @@
         <sourceDirectory>src</sourceDirectory>
         <!-- 配置资源文件-->
         <resources>
-            <resource>
-                <directory>src</directory>
-                <includes>
-                    <include>*/*.xml</include>
-                    <include>*.properties</include>
-                </includes>
-                <filtering>true</filtering>
-            </resource>
+        <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>*.yml</include>  <!--打包properties文件-->
+            </includes>
+        </resource>
         </resources>
 
         <plugins>
@@ -85,24 +83,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <!-- 配置资源文件插件-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.5</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                    <outputDirectory>
-                        ${project.build.directory}/conf
-                    </outputDirectory>
-                    <resources>
-                        <resource>
-                            <!--项目中的路径-->
-                            <directory>src/main/resources/</directory>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
+
             <!-- 配置编译插件-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -118,16 +99,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <outputDirectory>
-                        ${project.build.directory}/docker
-                    </outputDirectory>
-                    <excludes>
-                        <exclude>*/*.xml</exclude>
-                        <exclude>*.properties</exclude>
-                        <exclude>**/Test/*</exclude>
-                    </excludes>
-                </configuration>
             </plugin>
             <!-- 配置Jar打包源文件插件-->
             <plugin>

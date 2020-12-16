@@ -1,8 +1,8 @@
+server:
+  port: 6061 #服务注册中心端口号
 spring:
   profiles:
     active: dev
-server:
-  port: 8081 #服务注册中心端口号
 eureka:
   instance:
     hostname: 127.0.0.1 #服务注册中心IP地址
